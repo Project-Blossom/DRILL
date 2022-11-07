@@ -36,6 +36,9 @@ class FLY:
         self.frame = (self.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 5
         if(int(self.frame) == 0):
             self.frame_pg = (self.frame_pg + 1) % 3
+        if(int(self.frame) == 4 and self.frame_pg == 2):
+            self.frame = 0
+            self.frame_pg = 0
 
         self.x += self.dir * RUN_SPEED_PPS * game_framework.frame_time
         if(self.x > 1600):
